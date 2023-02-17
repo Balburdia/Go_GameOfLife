@@ -125,14 +125,14 @@ func main() {
 	}
 
 	// Create the universe
-	u := Universe{make([][]string, size), size, 0, 0}
+	u := &Universe{make([][]string, size), size, 0, 0}
 	u.populate()
 
 	// Go through the remaining generations
 	for i := 0; i < numGens; i++ {
 		u.nextGeneration()
 		fmt.Print("\033[H\033[2J")
-		fmt.Print(&u)
+		fmt.Print(u)
 		time.Sleep(500 * time.Millisecond)
 	}
 }
